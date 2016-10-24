@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyLaser : MonoBehaviour
 {
-    public float damage = 150f;
+    public float damage = 100f;
 
     public float getDamage()
     {

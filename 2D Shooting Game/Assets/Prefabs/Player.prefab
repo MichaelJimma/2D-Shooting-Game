@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011082320120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.63, y: -0.09, z: 0}
+  m_LocalPosition: {x: -6.81, y: 0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -104,6 +104,9 @@ MonoBehaviour:
   speed: 5
   laserSpeed: 16
   firingRate: 0.2
+  lifeValue: 1
+  laserSound: {fileID: 8300000, guid: 277993954f3f7df408085a030a659f98, type: 3}
+  deadSound: {fileID: 8300000, guid: ff917c23975c6ff438fdc79296b3d831, type: 3}
   laserBullet: {fileID: 1000012109605476, guid: a90befacdd38ad84283bf98abc99f1cb,
     type: 2}
 --- !u!212 &212000011569470210

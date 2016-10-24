@@ -10,13 +10,17 @@ public class PlayerController : MonoBehaviour
     float Ymin = -6.0f;
     public float laserSpeed = 10f;
     public float firingRate = 0.2f;
-    private float health = 300f;
+    private float health = 700f;
+    public int lifeValue = 1;
+    public AudioClip laserSound;
+    public AudioClip deadSound;
+    private LifeKeeper lifeKeeper;
     public GameObject laserBullet;
-    // Use this for initialization
+
     void Start ()
     {
-	
-	}
+        lifeKeeper = GameObject.Find("Life").GetComponent<LifeKeeper>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -59,10 +63,21 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         EnemyLaser laser = collider.gameObject.GetComponent<EnemyLaser>();
+        EnemyMeteor meteor = collider.gameObject.GetComponent<EnemyMeteor>();
+        
+        if (meteor)
+        {
+            AudioSource.PlayClipAtPoint(deadSound, transform.position);
+            health -= meteor.getDamage();
+            lifeKeeper.Life(lifeValue);
+            //meteor.hit();
+        }
 
         if (laser)
         {
+            AudioSource.PlayClipAtPoint(deadSound, transform.position);
             health -= laser.getDamage();
+            lifeKeeper.Life(lifeValue);
             laser.hit();
             if (health <= 0)
             {
@@ -75,5 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         GameObject laser = Instantiate(laserBullet, transform.position, Quaternion.identity) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector3(laserSpeed, 0);
+
+        AudioSource.PlayClipAtPoint(laserSound, transform.position);
     }
 }

@@ -88,6 +88,9 @@ MonoBehaviour:
   laserSpeed: 3
   laser: {fileID: 1000011126567938, guid: 9a5fa69f066b45f4380186bc52df1ccc, type: 2}
   firesPerSecond: 1
+  scoreValue: 150
+  laserSound: {fileID: 8300000, guid: b95907974cb235a429cb4cb92160eb0a, type: 3}
+  deadSound: {fileID: 8300000, guid: 3c4d47f0d83eaa54db56b3d14cc67eb6, type: 3}
 --- !u!212 &212000014125598352
 SpriteRenderer:
   m_ObjectHideFlags: 1
