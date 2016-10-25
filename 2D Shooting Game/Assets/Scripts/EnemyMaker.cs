@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ EnemyMaker.cs
+ Author:Michael Jimma
+ Last Modified by: Michael Jimma
+ Date last Modified 206-10-24
+ Program description: Controls the creation of enemies and increase the number of enemy by one everytime the entire enemies are destroyed
+ */
+
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -8,7 +16,7 @@ public class EnemyMaker : MonoBehaviour {
     public float width = 14f;
     public float height = 12f;
 
-    //Startup position for the 
+    
     private bool moveRight = true;
     public float speed = 2f;
     float Ymax = 2f;
@@ -17,6 +25,7 @@ public class EnemyMaker : MonoBehaviour {
     int parentNumber = 1;
     void Start()
     {
+        //Create the enemy formation at start
         createEnemies();
     }
 

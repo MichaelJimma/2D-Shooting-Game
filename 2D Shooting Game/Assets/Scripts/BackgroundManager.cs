@@ -1,10 +1,18 @@
-﻿using UnityEngine;
+﻿/*
+ BackgroundManager.cs
+ Author: Przemyslaw Pawluk
+ Last Modified by: Michael Jimma
+ Date last Modified 206-10-24
+ Program description: scrolls the background picture(star) and reset it at certain point.
+ Code snippet duplicated from lab project
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class BackgroundManager : MonoBehaviour
 {
 
-    //Set from Unity
     [SerializeField]
     float speed = 5f;
 

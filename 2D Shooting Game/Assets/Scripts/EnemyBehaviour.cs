@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ EnemyBehaviour.cs
+ Author:Michael Jimma
+ Last Modified by: Michael Jimma
+ Date last Modified 206-10-24
+ Program description: Controls different enemy behaviours such as score, laser speed and shooting frequency
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -14,13 +22,16 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
+        //Create ScoreKeeper object to access Score method of the object
         scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
     }
 
     void Update()
     {
+        //Sets the probability enemy's laser shooting by multiplying time.delta by the given firespersecond value, (0.9) in our case
         float probability = Time.deltaTime * firesPerSecond;
 
+        //this creates a random shooting frequency instead of a constant shooting
         if (Random.value < probability)
         {
             Fire();
@@ -33,11 +44,15 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (laser)
         {
-            health -= laser.getDamage();
+            //if the player laser hits the enemy, enemy's health will decrease by the value set in PlayerLaser object
+            health -= laser.getDamage();//returns the current damage value
             laser.hit();
             if (health <= 0)
             {
+                //this sound clip will be played everytime the enemy plane destroyed
                 AudioSource.PlayClipAtPoint(deadSound, transform.position);
+
+                //if enemy health is less than or equal to 0, the object will be destroyed
                 Destroy(gameObject);
                 scoreKeeper.Score(scoreValue);  
             }
